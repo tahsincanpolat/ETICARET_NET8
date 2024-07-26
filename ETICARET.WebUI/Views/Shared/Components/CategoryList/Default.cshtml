@@ -1,0 +1,31 @@
+﻿@model CategoryListViewModel
+<ul class="list-group category-list">
+    @foreach(var category in Model.Categories)
+    {
+        <a asp-controller="Shop" asp-action="List" asp-route-category="@category.Name.ToLower()"
+           class="list-group-item list-group-item-action @(Model.SelectedCategory == category.Name.ToLower() ? "active" : "")">
+            @category.Name
+            @if(@category.Name=="Telefon")
+
+            {
+                <img src="~/img/telefon.png" class="icon">
+            }
+            @if (@category.Name == "Bilgisayar")
+
+            {
+                <img src="~/img/bilgisayar.png" class="icon">
+            }
+            @if (@category.Name == "Elektronik")
+
+            {
+                <img src="~/img/elektronik.png" class="icon">
+            }
+            @if (@category.Name == "Ev Gereçleri")
+
+            {
+                <img src="~/img/evgerecleri.png" class="icon">
+            }
+        </a>
+        
+    }
+</ul>

@@ -1,0 +1,43 @@
+﻿@model List<AdminUserModel>
+@{
+    ViewData["Title"] = "UserList";
+}
+
+<h1>UserList</h1>
+<hr />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">FullName</th>
+            <th scope="col">UserName</th>
+            <th scope="col">Email</th>
+            <th scope="col">EmailConfirmed</th>
+            <th scope="col">IsAdmin</th>
+            <th scope="col" style="width:150px"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.FullName</th>
+
+                <td>@item.Username</td>
+                <td>@item.Email</td>
+                <td>@item.EmailConfirmed</td>
+                <td>@item.IsAdmin</td>
+                <td>
+                    <form action="/admin/useredit" method="get" style="display:inline">
+                        <input type="hidden" name="Email" value="@item.Email" />
+                        <button type="submit" class="btn btn-warning btn-sm">Edit</button>
+                    </form>
+
+                    <form action="/admin/userdelete" method="post" style="display:inline">
+                        <input type="hidden" name="Email" value="@item.Email" />
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

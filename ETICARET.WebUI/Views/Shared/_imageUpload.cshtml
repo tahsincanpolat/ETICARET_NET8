@@ -1,0 +1,9 @@
+﻿@model Image
+
+<div class="mb-3 col-md-6 offset-md-3">
+    <label asp-for="ImageUrl" class="form-label"></label>
+    <input type="hidden" name="ImageUrl" value="" />
+    <img id="imgPreview" width="80" />
+    <input type="file" name="file" value="" id="fileImage" />
+    @*<span asp-validation-for="@Model."></span>*@
+</div>

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>@ViewData["Title"] - Üçüncübinyıl ETİCARET</title>
+    <link rel="stylesheet" href="/modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+    <script src="/modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/d739071501.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- nav component-->
+    <partial name="_navbar" />
+    <div class="container pageContainer mb-5">
+        @if (TempData["message"] != null)
+        {
+            /* error and succes box */
+            <partial name="_resultMessage" model="@(TempData.Get<ResultModel>("message"))" />
+        }
+        @RenderBody()
+    </div>
+
+    <script src="/modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿@model ProductListModel
+@{
+    ViewData["title"] = "Product List";
+}
+
+<div class="row">
+    <div>
+        @await Component.InvokeAsync("CategoryList")
+    </div>
+    <div class="col-md-9">
+        <partial name="_slider" />
+        <div class="row">
+            @foreach (Product product in Model.Products)
+            {
+                <partial name="_products" for="@product" />
+            }
+        </div>
+        <div class="row">
+            <div class="d-flex justify-content-center mt-5" page-model="@Model.PageInfo"></div>
+        </div>
+    </div>
+</div>
